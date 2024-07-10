@@ -8,5 +8,11 @@ function ExerciseForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
+
+        const exerciseData = {
+            name: name,
+            description: description,
+            difficulty: difficulty
+          };
     }
 }  
