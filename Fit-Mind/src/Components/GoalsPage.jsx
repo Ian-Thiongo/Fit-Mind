@@ -1,32 +1,49 @@
 import React, { useState } from 'react';
-import './goals.css';
+import './Goalspage.css';
 
 const Goals = () => {
-    const [goals, setGoals] = useState([]);
+    const [goals, setGoals] = useState({});
     const [goalText, setGoalText] = useState('');
+    const [goalTitle, setGoalTitle] = useState('');
+    const [goalDate, setGoalDate] = useState('');
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        if (goalText.trim() === '') return;
-        setGoals([...goals, { text: goalText, completed: false }]);
+        if (goalText.trim() === '' || goalTitle.trim() === '' || goalDate.trim() === '') return;
+
+        const key = `${goalTitle}-${goalDate}`;
+        const newGoals = { ...goals };
+
+        if (!newGoals[key]) {
+            newGoals[key] = { title: goalTitle, date: goalDate, goals: [] };
+        }
+
+        newGoals[key].goals.push({ text: goalText, completed: false });
+
+        setGoals(newGoals);
         setGoalText('');
+        setGoalTitle('');
+        setGoalDate('');
     };
 
-    const handleCheckboxChange = (index) => {
-        const newGoals = goals.map((goal, i) => {
-            if (i === index) {
-                return { ...goal, completed: !goal.completed };
-            }
-            return goal;
-        });
+    const handleCheckboxChange = (groupKey, index) => {
+        const newGoals = { ...goals };
+        newGoals[groupKey].goals[index].completed = !newGoals[groupKey].goals[index].completed;
         setGoals(newGoals);
     };
 
     return (
         <div className="container">
-            <div className="vertical-title">Dream. Plan. Do.</div>
+            <div className="vertical-title">Dream. <br /> Plan. <br />Do.</div>
             <h1>My Goals</h1>
             <form onSubmit={handleSubmit}>
+                <input
+                    type="text"
+                    value={goalTitle}
+                    onChange={(e) => setGoalTitle(e.target.value)}
+                    placeholder="Enter goal title"
+                    required
+                />
                 <input
                     type="text"
                     value={goalText}
@@ -34,20 +51,32 @@ const Goals = () => {
                     placeholder="Enter a new goal"
                     required
                 />
+                <input
+                    type="date"
+                    value={goalDate}
+                    onChange={(e) => setGoalDate(e.target.value)}
+                    required
+                />
                 <button type="submit">Add Goal</button>
             </form>
-            <ul>
-                {goals.map((goal, index) => (
-                    <li key={index} className={goal.completed ? 'completed' : ''}>
-                        <input
-                            type="checkbox"
-                            checked={goal.completed}
-                            onChange={() => handleCheckboxChange(index)}
-                        />
-                        {goal.text}
-                    </li>
-                ))}
-            </ul>
+            {Object.keys(goals).map((groupKey) => (
+                <div key={groupKey} className="goal-group">
+                    <div className="goal-title">{goals[groupKey].title}</div>
+                    <div className="goal-date">({goals[groupKey].date})</div>
+                    <ul>
+                        {goals[groupKey].goals.map((goal, index) => (
+                            <li key={index} className={goal.completed ? 'completed' : ''}>
+                                <input
+                                    type="checkbox"
+                                    checked={goal.completed}
+                                    onChange={() => handleCheckboxChange(groupKey, index)}
+                                />
+                                {goal.text}
+                            </li>
+                        ))}
+                    </ul>
+                </div>
+            ))}
         </div>
     );
 };

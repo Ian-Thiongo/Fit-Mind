@@ -1,9 +1,16 @@
 import { useState } from 'react'
 
+import Goals from './Components/GoalsPage'
 
-import './App.css'
 
 function App() {
+  return(
+    <div >
+   
+     <Goals/>
+    </div>
+  )
+    
   
 }
 

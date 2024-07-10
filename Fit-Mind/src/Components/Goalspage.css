@@ -1,13 +1,15 @@
 
 
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 * {
-    background-color: #012214;
+    background-color: #659b84;
 }
 
 /* Container styling */
 .container {
-    max-width: 500px;
+    max-width: 900px;
     margin: 50px auto;
     padding: 20px;
     color: #0b0f0d;
@@ -84,13 +86,35 @@ li input[type="checkbox"] {
 .vertical-title {
     position: absolute;
     top: 10px;
-    left: -40px; /* Adjust as needed */
-    writing-mode: vertical-rl;
+    left: -500px; /* Adjust as needed */
+    
     text-orientation: mixed;
     font-family: 'Pacifico', cursive;
-    font-size: 2rem; /* Adjust as needed */
+    font-size: 10rem; /* Adjust as needed */
     color: #fff;
 }
 
-/* Import Google Font */
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+/* Existing CSS remains the same */
+
+/* Existing CSS remains the same */
+
+/* Title and Date styling */
+.goal-title {
+    font-weight: bold;
+    margin-right: 10px;
+}
+
+.goal-date {
+    font-style: italic;
+    color: #555;
+}
+
+/* Container for goals under each title and date */
+.goal-group {
+    margin-top: 20px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background: #659b84;
+}
+
