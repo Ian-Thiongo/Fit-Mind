@@ -1,0 +1,96 @@
+/* goals.css */
+
+/* General styling */
+* {
+    background-color: #012214;
+}
+
+/* Container styling */
+.container {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 20px;
+    color: #0b0f0d;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.644);
+    position: relative; /* Added to position the vertical text */
+}
+
+/* Title styling */
+h1 {
+    text-align: center;
+}
+
+/* Form styling */
+form {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+/* Input styling */
+input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #fff;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+/* Checkbox styling */
+input[type="checkbox"] {
+    background-color: #28a745;
+}
+
+/* Button styling */
+button {
+    padding: 10px 20px;
+    border: none;
+    background: #28a745;
+    color: #fff;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #218838;
+}
+
+/* List styling */
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+/* List item styling */
+li {
+    background: #fff;
+    margin: 10px 0;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+}
+
+li.completed {
+    text-decoration: line-through;
+}
+
+li input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+/* Vertical text styling */
+.vertical-title {
+    position: absolute;
+    top: 10px;
+    left: -40px; /* Adjust as needed */
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    font-family: 'Pacifico', cursive;
+    font-size: 2rem; /* Adjust as needed */
+    color: #fff;
+}
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
