@@ -25,6 +25,7 @@
     margin: 0 auto;
     padding: 20px;
     text-align: center;
+    color: #fff; /* Add this line to change the text color to white */
   }
   
   .logo {
@@ -37,69 +38,53 @@
     border-radius: 50%;
   }
   
+  h1, h2, p {
+    color: #fff; /* Add this line to change the text color to white for headings and paragraphs */
+  }
+  
   h1 {
-    font-size: 36px;
-    font-weight: bold;
+    font-size: 36;
+  }
+  /* ... other styles ... */
+
+.form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    width: 300px;
+    margin: 40px auto;
+  }
+  
+  .form-container label, .form-container input, .form-container button {
+    color: #fff;
+  }
+  
+  .form-container label {
+    font-size: 16px;
     margin-bottom: 10px;
+    color: #fff;
   }
   
-  p {
-    font-size: 18px;
+  .form-container input[type="email"], .form-container input[type="password"] {
+    width: 100%;
+    height: 40px;
     margin-bottom: 20px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    color: #fff;
   }
   
-  .cta {
+  .form-container button[type="submit"] {
     background-color: #4CAF50;
     color: #fff;
-    border: none;
     padding: 10px 20px;
-    font-size: 18px;
+    border: none;
+    border-radius: 5px;
     cursor: pointer;
   }
   
-  .cta:hover {
+  .form-container button[type="submit"]:hover {
     background-color: #3e8e41;
-  }
-  
-  .features {
-    margin-top: 20px;
-  }
-  
-  .features h2 {
-    font-size: 24px;
-    margin-bottom: 10px;
-  }
-  
-  .features ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-  }
-  
-  .features li {
-    margin-bottom: 10px;
-  }
-  
-  .features li:before {
-    content: "\2713";
-    font-size: 18px;
-    color: #4CAF50;
-    margin-right: 10px;
-  }
-  
-  .call-to-action {
-    margin-top: 20px;
-  }
-  
-  .call-to-action button {
-    margin-bottom: 10px;
-  }
-  
-  .call-to-action a {
-    text-decoration: none;
-    color: #4CAF50;
-  }
-  
-  .call-to-action a:hover {
-    color: #3e8e41;
   }
