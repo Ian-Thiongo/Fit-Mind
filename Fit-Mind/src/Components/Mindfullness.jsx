@@ -1,6 +1,8 @@
 import React, {useState} from "react";
 
-function ExerciseForm() {
+
+
+function Mindfullness() {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [difficulty, setDifficulty] = useState('');
@@ -70,7 +72,7 @@ function ExerciseForm() {
         );
       }
       
-      export default ExerciseForm; 
+      export default Mindfullness; 
     
 
 
