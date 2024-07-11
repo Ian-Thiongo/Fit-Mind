@@ -86,7 +86,7 @@ li input[type="checkbox"] {
 .vertical-title {
     position: absolute;
     top: 10px;
-    left: -500px; /* Adjust as needed */
+    left: -480px; /* Adjust as needed */
     
     text-orientation: mixed;
     font-family: 'Pacifico', cursive;
