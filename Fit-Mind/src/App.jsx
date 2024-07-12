@@ -1,19 +1,21 @@
-import { useState } from 'react'
-import './App.css'
-import Goal from './Components/GoalsPage'
-import Profile from './Components/Profile'
-import Mindfullness from './Components/Mindfullness'
+
+
+import React from 'react';
+import './App.css';
+import Login from "./Components/Login";
+import Goal from './Components/GoalsPage';
+import Profile from './Components/Profile';
+import Mindfullness from './Components/Mindfullness';
 
 function App() {
-  return(
-    <div className="App">
-      <Profile />
-     <Goal/>
-     <Mindfullness/>
+  return (
+    <div classname="App">
+    <Login />
+    <Profile />
+    <Mindfullness />
     </div>
-  )
-    
-  
+  );
+
 }
 
-export default App
+export default App;
