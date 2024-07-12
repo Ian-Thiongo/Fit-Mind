@@ -82,7 +82,9 @@ const MindfulnessSessions = () => {
 
   return (
     <div>
+      <div className='session-title'>
       <h1>Mindfulness Sessions</h1>
+      </div>
       <div className="sessions-grid">
         {sessions.map((session) => (
           <div key={session.id} className="session-card" onClick={() => handleClick(session)}>
