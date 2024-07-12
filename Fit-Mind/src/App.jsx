@@ -6,12 +6,14 @@ import Goal from './Components/GoalsPage';
 import Profile from './Components/Profile';
 import Mindfulness from './Components/Mindfulness';
 
+
 function App() {
   return (
     <div classname="App">
     <Login />
     <Profile />
     <Mindfulness />
+
     </div>
   );
 
