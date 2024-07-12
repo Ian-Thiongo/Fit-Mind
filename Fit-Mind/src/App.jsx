@@ -6,6 +6,7 @@ import Goal from './Components/GoalsPage';
 import Profile from './Components/Profile';
 import Mindfulness from './Components/Mindfulness';
 import NavBar from './Components/NavBar';
+import Challenges from './Components/ChallengeBox'
 
 const App = () => {
   return (
