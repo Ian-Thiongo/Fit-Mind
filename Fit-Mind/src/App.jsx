@@ -1,35 +1,22 @@
-import React, { useEffect, useState } from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Home from './Components/home';
-import './index.css';  
-import './App.css';    
+import React from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import LandingPage from './Components/home';
+import Login from "./Components/Login";
+import Goal from './Components/GoalsPage';
+import Profile from './Components/Profile';
+import Mindfulness from './Components/Mindfulness';
+import NavBar from './Components/NavBar';
 
 const App = () => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
-
-  useEffect(() => {
-    fetch('/api/session')
-      .then(response => response.json())
-      .then(data => {
-        setIsLoggedIn(data.loggedIn);
-      });
-  }, []);
-
-  const handleLogout = () => {
-    // Implement logout functionality
-    setIsLoggedIn(false); 
-  };
-
   return (
     <Router>
-      <NavBar isLoggedIn={isLoggedIn} handleLogout={handleLogout} />
+      <NavBar />
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/goals" element={<Goals />} />
-        <Route path="/challenges" element={<Challenges />} />
-        <Route path="/mindfulness" element={<Mindfulness />} />
-        <Route path="/profile" element={<Profile />} />
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<LandingPage />} />
+        <Route path="/profile" element={<ProfilePage />} />
+        <Route path="/goals" element={<GoalsPage />} />
+        <Route path="/challenges" element={<FitnessChallengesPage />} />
+        <Route path="/mindfulness" element={<MindfulnessSessionsPage />} />
       </Routes>
     </Router>
   );

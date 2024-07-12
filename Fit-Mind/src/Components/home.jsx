@@ -1,16 +1,13 @@
 import React from 'react';
-import './Home.css';  
+import './Home.css';
 
-
-const Home = () => {
+const LandingPage = () => {
   return (
-    <div className="home">
-      <div className="home-content">
-        <h1 >Welcome to FitMind</h1>
-        <p>FitMind helps you track your fitness, build habits, and enhance wellness through personalized challenges and mindfulness sessions.</p>
-      </div>
+    <div className="page">
+      <h1>Welcome to FitMind</h1>
+      <p>Start your journey to a healthier, happier you. Explore personalized fitness challenges and mindfulness sessions designed to empower your wellness goals. Let’s cultivate a balanced mind and body together!</p>
     </div>
   );
 };
 
-export default Home;
+export default LandingPage;
