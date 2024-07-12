@@ -6,6 +6,7 @@ function Mindfullness() {
     const [name, setName] = useState('');
     const [description, setDescription] = useState('');
     const [difficulty, setDifficulty] = useState('');
+    const [duration, setDuration] = useState('')
 
 
     const handleSubmit = async (event) => {
@@ -14,7 +15,8 @@ function Mindfullness() {
         const exerciseData = {
             name: name,
             description: description,
-            difficulty: difficulty
+            difficulty: difficulty,
+            duration: duration,
           };
           try {
             const response = await fetch('/add_exercise', {
@@ -31,6 +33,7 @@ function Mindfullness() {
             setName('');
             setDescription('');
             setDifficulty('');
+            setDuration('')
           } catch (error) {
             console.error('Error adding exercise:', error);
             alert('An error occurred while adding the exercise.');
@@ -64,6 +67,15 @@ function Mindfullness() {
                 name="difficulty"
                 value={difficulty}
                 onChange={(e) => setDifficulty(e.target.value)}
+                required
+              /><br /><br />
+              <label htmlFor="duration">Duration:</label><br />
+              <input
+                type="text"
+                id="duration"
+                name="duration"
+                value={duration}
+                onChange={(e) => setDuration(e.target.value)}
                 required
               /><br /><br />
               <button type="submit">Add Exercise</button>
