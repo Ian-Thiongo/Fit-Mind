@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "name": "fit-mind",
   "private": true,
   "version": "0.0.0",
@@ -24,10 +23,5 @@
     "eslint-plugin-react-hooks": "^4.6.2",
     "eslint-plugin-react-refresh": "^0.4.7",
     "vite": "^5.3.1"
-=======
-  "dependencies": {
-    "react-avatar-edit": "^1.2.0",
-    "react-icons": "^5.2.1"
->>>>>>> 18a9f1b9c249e1bddea9983e2b7afe644de3d928
   }
 }
