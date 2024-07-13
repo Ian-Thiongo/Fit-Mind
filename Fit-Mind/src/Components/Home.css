@@ -1,17 +1,22 @@
-.home {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-image: url('../assets/background.jpg');  
-    background-size: cover;
-    background-position: center;
-  }
-  
-.home-content {
-    text-align: center;
-    color: white;  
-    background: rgba(0, 0, 0, 0.5);  
-    padding: 20px;
-    border-radius: 10px;
+.page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; 
+  background-image: url('../assets/background.jpg'); 
+  background-size: cover; 
+  background-position: center; 
+  color: white; 
+  container:initial;
+}
+
+h1 {
+  color: #4CAF50; 
+  font-size: 2.5em; 
+}
+
+p {
+  color:honeydew; 
+  text-align: center;
 }
