@@ -7,7 +7,7 @@ import Goal from './Components/GoalsPage';
 import Profile from './Components/Profile';
 import Mindfulness from './Components/Mindfulness';
 import NavBar from './Components/NavBar';
-import Challenges from './Components/ChallengeBox';
+import FitnessChallenge from './Components/FitnessChallenge';
 
 const App = () => {
   return (
@@ -19,7 +19,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/profile" element={<Profile />} />
           <Route path="/goals" element={<Goal />} />
-          <Route path="/challenges" element={<Challenges />} />
+          <Route path="/Challenges" element={<FitnessChallenge />} />
           <Route path="/mindfulness" element={<Mindfulness />} />
         </Routes>
       </div>

@@ -1,0 +1,62 @@
+
+.fitness-challenge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: #e9c0d4;
+  }
+  
+  .button-container {
+    margin: 20px;
+  }
+  
+  
+  .level-button {
+    background-color: #a06d97;
+    border: none;
+    color: white;
+    padding: 20px 40px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    margin: 10px;
+    cursor: pointer;
+    border-radius: 12px;
+    transition: background-color 0.3s;
+  }
+  
+  .level-button:hover {
+    background-color: #3a8070;
+  }
+  
+  
+  .exercise-list {
+    margin: 20px auto;
+    max-width: 600px;
+  }
+  
+  .exercise-list h2 {
+    color: #333;
+  }
+  
+  
+  .exercise-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  
+  .exercise-box {
+    background-color: #84ccdf;
+    margin: 10px;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.884);
+    width: 200px;
+    text-align: center;
+  }
