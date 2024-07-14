@@ -1,15 +1,13 @@
-// src/components/MindfulnessSessions.js
 import React, { useState } from 'react';
 import './mindfulness.css';
 
-const sessions = [
+const initialSessions = [
   {
     id: 1,
     title: 'Loving-Kindness Meditation (Metta)',
     description: 'Cultivates an attitude of love and kindness towards oneself and others.',
     instructions: 'Silently repeat phrases like “May I be happy,” “May you be safe,” gradually extending these wishes to others.',
   },
-  // Add the rest of the sessions here...
   {
     id: 2,
     title: 'Body Scan Meditation',
@@ -70,21 +68,53 @@ const sessions = [
     description: 'Uses sound to focus the mind and achieve relaxation.',
     instructions: 'Listen to instruments like gongs, singing bowls, or even recorded nature sounds.',
   },
-
 ];
 
 const MindfulnessSessions = () => {
+  const [sessions, setSessions] = useState(initialSessions);
   const [selectedSession, setSelectedSession] = useState(null);
+  const [newSessionTitle, setNewSessionTitle] = useState('');
+  const [newSessionDescription, setNewSessionDescription] = useState('');
+  const [newSessionInstructions, setNewSessionInstructions] = useState('');
+  const [newSessionTime, setNewSessionTime] = useState('');
+  const [newSessionDuration, setNewSessionDuration] = useState('');
+  const [newSessionDifficulty, setNewSessionDifficulty] = useState('');
 
   const handleClick = (session) => {
     setSelectedSession(session);
   };
 
+  const addSession = () => {
+    if (
+      newSessionTitle.trim() !== '' &&
+      newSessionDescription.trim() !== '' &&
+      newSessionInstructions.trim() !== '' &&
+      newSessionTime.trim() !== '' &&
+      newSessionDuration.trim() !== '' &&
+      newSessionDifficulty.trim() !== ''
+    ) {
+      const newSession = {
+        id: sessions.length + 1,
+        title: newSessionTitle,
+        description: newSessionDescription,
+        instructions: newSessionInstructions,
+        time: newSessionTime,
+        duration: newSessionDuration,
+        difficulty: newSessionDifficulty,
+      };
+      setSessions([...sessions, newSession]);
+      setNewSessionTitle('');
+      setNewSessionDescription('');
+      setNewSessionInstructions('');
+      setNewSessionTime('');
+      setNewSessionDuration('');
+      setNewSessionDifficulty('');
+    }
+  };
+
   return (
     <div>
-      <div className='session-title'>
       <h1>Mindfulness Sessions</h1>
-      </div>
       <div className="sessions-grid">
         {sessions.map((session) => (
           <div key={session.id} className="session-card" onClick={() => handleClick(session)}>
@@ -93,10 +123,54 @@ const MindfulnessSessions = () => {
               <div className="session-details">
                 <p><strong>Description:</strong> {session.description}</p>
                 <p><strong>Instructions:</strong> {session.instructions}</p>
+                {session.time && <p><strong>Time:</strong> {session.time}</p>}
+                {session.duration && <p><strong>Duration:</strong> {session.duration}</p>}
+                {session.difficulty && <p><strong>Difficulty:</strong> {session.difficulty}</p>}
               </div>
             )}
           </div>
         ))}
+      </div>
+      
+      <div className="add-session-form">
+        <h2>Add a New Session</h2>
+        <input
+          type="text"
+          value={newSessionTitle}
+          onChange={(e) => setNewSessionTitle(e.target.value)}
+          placeholder="Enter session title"
+        />
+        <input
+          type="text"
+          value={newSessionDescription}
+          onChange={(e) => setNewSessionDescription(e.target.value)}
+          placeholder="Enter session description"
+        />
+        <input
+          type="text"
+          value={newSessionInstructions}
+          onChange={(e) => setNewSessionInstructions(e.target.value)}
+          placeholder="Enter session instructions"
+        />
+        <input
+          type="text"
+          value={newSessionTime}
+          onChange={(e) => setNewSessionTime(e.target.value)}
+          placeholder="Enter session time"
+        />
+        <input
+          type="text"
+          value={newSessionDuration}
+          onChange={(e) => setNewSessionDuration(e.target.value)}
+          placeholder="Enter session duration"
+        />
+        <input
+          type="text"
+          value={newSessionDifficulty}
+          onChange={(e) => setNewSessionDifficulty(e.target.value)}
+          placeholder="Enter session difficulty"
+        />
+        <button onClick={addSession}>Add Session</button>
       </div>
     </div>
   );

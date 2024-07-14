@@ -1,34 +1,23 @@
-
-body {
-  background-image: url('https://i.pinimg.com/564x/f9/6b/f2/f96bf2246a029b35e216876495fdde7b.jpg');
-  background-size: cover; 
-  background-repeat: no-repeat;
-  background-position: center; 
-  background-attachment: fixed; 
-}
-
-.session-title {
-  font-size: 30px;
-  color: #52796f;
-  margin-bottom: 10px;
-}
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 .sessions-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); 
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjusted to make grids bigger */
   gap: 20px;
   padding: 20px;
-  
+  font-family: 'Pacifico', ; /* Apply Pacifico font */
 }
 
 .session-card {
-  padding: 30px; 
+  padding: 30px; /* Increased padding */
   border: 1px solid #ddd;
   border-radius: 8px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
   cursor: pointer;
   transition: box-shadow 0.2s ease;
-  font-size: 18px; 
+  background-color: #fff; /* Ensure background is white */
+  font-size: 18px; /* Font size for better readability */
 }
 
 .session-card:hover {
@@ -37,10 +26,14 @@ body {
 
 .session-details {
   margin-top: 10px;
-  font-size: 22px; /* Font size for session details */
+  font-size: 16px; /* Font size for session details */
 }
 
-
+/* Additional styles for specific elements */
+.session-title {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
 
 .session-description, .session-instructions, .session-duration {
   margin-bottom: 10px;
