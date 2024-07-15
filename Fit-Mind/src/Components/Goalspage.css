@@ -32,6 +32,10 @@ h1 {
 }
 
 /* Form styling */
+.form-title {
+    color: #659b6ae5;
+}
+
 form {
     display: flex;
     justify-content: center;

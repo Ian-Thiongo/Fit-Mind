@@ -1,3 +1,14 @@
+
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.fitness-title {
+  text-orientation: mixed;
+  font-family: 'Pacifico', cursive;
+  font-size: 7rem; /* Adjust as needed */
+  margin-bottom: 50px;
+  color: #e4eceace;
+}
 .fitness{
   background-image: url('https://i.pinimg.com/564x/76/76/2e/76762eb800603c9ea264f3c62983a418.jpg');
   background-size: cover; 
