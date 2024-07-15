@@ -2,9 +2,7 @@
 /* Import Google Font */
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
-* {
-    background-color: #B5C99A;
-}
+
 /* Universal Styles */
 * {
   margin: 0;
@@ -16,15 +14,20 @@
 /* Profile Page Container */
 .profile-page {
   position: relative;
-  padding: 20px;
+  height: 1000vh;
+  background-image: url('https://i.pinimg.com/564x/75/cc/71/75cc71c26ba27b8e8628e59cbecbb72c.jpg');
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-attachment: fixed;
 }
 
 /* Title Styling */
 .title {
   position: absolute;
   top: 10px;
-  left: 20px;
-  font-size: 66px;
+  left: 50px;
+  font-size: 100px;
   font-family: 'Pacifico', cursive;
   color: #718355;
 }
@@ -37,7 +40,7 @@
   padding: 10px;
   
   border-radius: 20px;
-  margin-top: 80px; /* Adjusted for title spacing */
+  margin-top: 0px; /* Adjusted for title spacing */
 }
 
 /* Header Section */

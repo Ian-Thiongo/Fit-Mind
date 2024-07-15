@@ -35,6 +35,7 @@ const Goals = () => {
     };
 
     return (
+        <div className="goals-page">
         <div className="container">
             <div className="vertical-title">Dream. <br /> Plan. <br />Do.</div>
             <h1>My Goals</h1>
@@ -79,6 +80,7 @@ const Goals = () => {
                     </ul>
                 </div>
             ))}
+        </div>
         </div>
     );
 };

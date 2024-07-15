@@ -113,7 +113,7 @@ const MindfulnessSessions = () => {
   };
 
   return (
-    <div>
+    <div className='mindfulness-body'>
       <h1>Mindfulness Sessions</h1>
       <div className="sessions-grid">
         {sessions.map((session) => (
@@ -132,46 +132,7 @@ const MindfulnessSessions = () => {
         ))}
       </div>
       
-      <div className="add-session-form">
-        <h2>Add a New Session</h2>
-        <input
-          type="text"
-          value={newSessionTitle}
-          onChange={(e) => setNewSessionTitle(e.target.value)}
-          placeholder="Enter session title"
-        />
-        <input
-          type="text"
-          value={newSessionDescription}
-          onChange={(e) => setNewSessionDescription(e.target.value)}
-          placeholder="Enter session description"
-        />
-        <input
-          type="text"
-          value={newSessionInstructions}
-          onChange={(e) => setNewSessionInstructions(e.target.value)}
-          placeholder="Enter session instructions"
-        />
-        <input
-          type="text"
-          value={newSessionTime}
-          onChange={(e) => setNewSessionTime(e.target.value)}
-          placeholder="Enter session time"
-        />
-        <input
-          type="text"
-          value={newSessionDuration}
-          onChange={(e) => setNewSessionDuration(e.target.value)}
-          placeholder="Enter session duration"
-        />
-        <input
-          type="text"
-          value={newSessionDifficulty}
-          onChange={(e) => setNewSessionDifficulty(e.target.value)}
-          placeholder="Enter session difficulty"
-        />
-        <button onClick={addSession}>Add Session</button>
-      </div>
+      
     </div>
   );
 };
