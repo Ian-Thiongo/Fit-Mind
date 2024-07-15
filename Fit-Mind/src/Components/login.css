@@ -47,7 +47,7 @@ p {
   color: #f1eeee; /* Slightly lighter gray for better readability */
 }
 .cta {
-  background-color: #4CAF50; /* Green color for the buttons */
+  background-color: #131613; /* Green color for the buttons */
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -83,12 +83,13 @@ p {
 
 .features li {
   margin-bottom: 10px;
+  color: #333; /* Darker gray for better readability */
 }
 
 .features li:before {
   content: "\2713";
   font-size: 18px;
-  color: #4CAF50; /* Green checkmark */
+  color: #080c08; /* Green checkmark */
   margin-right: 10px;
 }
 .call-to-action {
@@ -159,7 +160,7 @@ form input {
 }
 
 form button {
-  background-color: #4CAF50;
+  background-color: #1e5a83;
   color: white;
   padding: 10px 20px;
   font-size: 16px;
