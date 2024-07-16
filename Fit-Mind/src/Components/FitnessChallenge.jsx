@@ -62,7 +62,7 @@ const FitnessChallenge = () => {
   return (
     <div className="fitness">
      <div className="fitness-challenge">
-       <h1>Fitness Challenge</h1>
+       <h1 className='fitness-title'>Fitness Challenge</h1>
        <p>Welcome to your fitness challenge! Choose your level to see a list of exercises.</p>
        <p>Choose your fitness level:</p>
        <div className="button-container">

@@ -114,13 +114,13 @@ const MindfulnessSessions = () => {
 
   return (
     <div className='mindfulness-body'>
-      <h1>Mindfulness Sessions</h1>
+      <h1 className='session-title'>Mindfulness Sessions</h1>
       <div className="sessions-grid">
         {sessions.map((session) => (
           <div key={session.id} className="session-card" onClick={() => handleClick(session)}>
             <h2>{session.title}</h2>
             {selectedSession === session && (
-              <div className="session-details">
+              <div className="session-detail">
                 <p><strong>Description:</strong> {session.description}</p>
                 <p><strong>Instructions:</strong> {session.instructions}</p>
                 {session.time && <p><strong>Time:</strong> {session.time}</p>}

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Bona+Nova+SC:ital,wght@0,400;0,700;1,400&display=swap");
+
 .landing-page {
   position: relative;
   width: 100%;
@@ -30,7 +32,6 @@
 body, html {
   margin: 0;
   padding: 0;
-  font-family: Arial, sans-serif;
   height: 100%;
   width: 100%;
   overflow: hidden;
@@ -38,13 +39,21 @@ body, html {
 h1 {
   font-size: 36px;
   font-weight: bold;
-  margin-bottom: 10px;
+  margin-bottom: 50px;
   color: #ecf1f1; /* Darker gray for better readability */
+  font-family: "Bona Nova SC", serif;
+  font-weight: 100;
+  font-style: normal;
+  font-size: 5rem;
 }
 p {
   font-size: 18px;
   margin-bottom: 20px;
   color: #f1eeee; /* Slightly lighter gray for better readability */
+  font-family: "Bona Nova SC", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
 }
 .cta {
   background-color: #131613; /* Green color for the buttons */
@@ -55,6 +64,10 @@ p {
   cursor: pointer;
   border-radius: 5px; /* Rounded corners for the buttons */
   transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  font-family: "Bona Nova SC", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 1.5rem;
 }
 .cta:hover {
   background-color: #3e8e41; /* Darker green on hover */
@@ -69,16 +82,27 @@ p {
   font-size: 24px;
   margin-bottom: 10px;
   color: #f8f5f5; /* Darker gray for better readability */
+  font-family: "Bona Nova SC", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
 }
 .content h2{
   font-size: 24px;
   margin-bottom: 10px;
   color: #f8f5f5;
+  font-family: "Bona Nova SC", serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 2rem;
 }
 .features ul {
   list-style: none;
   padding: 0;
   margin: 0;
+  font-family: "Bona Nova SC", serif;
+  font-weight: 400;
+  font-style: normal;
 }
 
 .features li {

@@ -38,7 +38,7 @@ const Goals = () => {
         <div className="goals-page">
         <div className="container">
             <div className="vertical-title">Dream. <br /> Plan. <br />Do.</div>
-            <h1>My Goals</h1>
+            <h1 className='form-title'>My Goals</h1>
             <form onSubmit={handleSubmit}>
                 <input
                     type="text"
