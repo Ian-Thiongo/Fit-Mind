@@ -1,99 +1,34 @@
-nav {
-    background-image: url('https://i.pinimg.com/736x/cd/f7/42/cdf74291e86b67080da3c2fccc32fa44.jpg');
-  background-size: cover; 
-  background-repeat: no-repeat;
-  background-position: center; 
-  background-attachment: fixed; 
-  height: 10vh; 
-    padding: 1px;
-}
-  
-ul {
-    list-style-type: none; 
-    display: flex; 
-    padding: 0; 
-    margin: 0; 
-}
-  
-li {
-    margin-right: 20px; 
-}
-  
-li:last-child {
-    margin-right: 0; 
-}
-  
-a {
-    color: rgb(8, 8, 8); 
-    text-decoration: none; 
-}
-  
-a:hover {
-    text-decoration: underline; 
-}
-
-#fit {
-    font-weight: bolder;
-    font-size: xx-large;
-}
-
-/* .sidebar {
-    position: fixed;
-    left: 0;
+.sidebar {
+    width: 250px; /* Set the width of the sidebar */
+    height: 100vh; /* Full height */
+    position: fixed; /* Fixed position */
     top: 0;
-    bottom: 0;
-    width: 200px; 
-    background-color: black; 
-    color: #fff; 
-    padding: 20px; 
-    box-sizing: border-box;
-    overflow-y: auto; 
-}
-   */
-/* .sidebar-nav {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-} */
+    left: 0;
+    background-color: #111; /* Background color */
+    overflow-x: hidden; /* Disable horizontal scroll */
+    transition: transform 0.3s ease;
+  }
   
-/* .sidebar-nav li {
-    margin-bottom: 10px;
-}
-   */
-/* .sidebar-nav a {
-    display: list-item;
-    color: #fff;
-    text-decoration: none;
-   
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-}
-   */
-/* .sidebar-nav a:hover {
-    background-color: #555; 
-} */
+  .sidebar.hidden {
+    transform: translateX(-100%);
+  }
   
-/* .sidebar button {
-    display: block;
-    color: #fff;
-    background-color: transparent;
+  .sidebar.visible {
+    transform: translateX(0);
+  }
+  
+  .toggle-button {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    z-index: 1000;
+    background: none;
     border: none;
     cursor: pointer;
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 4px;
-    transition: background-color 0.3s ease;
-} */
+    font-size: 24px; /* Adjust font size for the arrow */
+  }
   
-/* .sidebar button:hover {
-    background-color: black; 
-}
+  .toggle-button:focus {
+    outline: none;
+  }
   
-.close-btn {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    color: #fff;
-    cursor: pointer;
-} */
-
