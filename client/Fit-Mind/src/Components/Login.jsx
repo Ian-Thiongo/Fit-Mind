@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
-import '../Components/login.css';
+import './login.css';
 
 function Login({ onLogin }) {
   const [showLoginModal, setShowLoginModal] = useState(false);
