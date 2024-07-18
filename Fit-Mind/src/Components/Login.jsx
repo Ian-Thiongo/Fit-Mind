@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
-import "../Components/login.css";
+import { Formik, Form, Field, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom';
+import '../Components/login.css';
 
-function Login() {
+function Login({ onLogin }) {
   const [showLoginModal, setShowLoginModal] = useState(false);
   const [showSignUpModal, setShowSignUpModal] = useState(false);
+  const navigate = useNavigate();
 
   const handleLoginClick = () => {
     setShowLoginModal(true);
@@ -18,8 +22,20 @@ function Login() {
     setShowSignUpModal(false);
   };
 
+  const handleLogin = (values) => {
+    console.log('Login form submitted', values);
+    onLogin('mockToken');
+    navigate('/', { replace: true });
+  };
+
+  const handleSignUp = (values) => {
+    console.log('Sign-up form submitted', values);
+    onLogin('mockToken');
+    navigate('/', { replace: true });
+  };
+
   return (
-    <div className='landing-page'>
+    <div className="landing-page">
       <div className="background">
         <img src="/Dark Mind Wallpapers Aesthetic.jpeg" alt="Background" />
       </div>
@@ -42,12 +58,12 @@ function Login() {
         </div>
         {showLoginModal && (
           <Modal onClose={handleCloseModal}>
-            <LoginForm />
+            <LoginForm onLogin={handleLogin} />
           </Modal>
         )}
         {showSignUpModal && (
           <Modal onClose={handleCloseModal}>
-            <SignUpForm />
+            <SignUpForm onSignUp={handleSignUp} />
           </Modal>
         )}
       </div>
@@ -66,88 +82,77 @@ function Modal({ children, onClose }) {
   );
 }
 
-function LoginForm() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState(null);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (!email || !password) {
-      setError('Please enter email and password');
-    } else {
-      // Handle form submission and validation
-      console.log('Login form submitted');
-    }
-  };
+const LoginForm = ({ onLogin }) => {
+  const validationSchema = Yup.object().shape({
+    email: Yup.string()
+      .email('Invalid email format')
+      .required('Email is required'),
+    password: Yup.string()
+      .min(8, 'Password must be at least 8 characters')
+      .required('Password is required'),
+  });
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="email">Email:</label>
-      <input 
-        type="email" 
-        id="email" 
-        value={email} 
-        onChange={(event) => setEmail(event.target.value)} 
-      />
-      <label htmlFor="password">Password:</label>
-      <input 
-        type="password" 
-        id="password" 
-        value={password} 
-        onChange={(event) => setPassword(event.target.value)} 
-      />
-      {error && <div className="error">{error}</div>}
-      <button type="submit">Login</button>
-    </form>
+    <Formik
+      initialValues={{ email: '', password: '' }}
+      validationSchema={validationSchema}
+      onSubmit={onLogin}
+    >
+      {() => (
+        <Form>
+          <label htmlFor="email">Email:</label>
+          <Field type="email" id="email" name="email" />
+          <ErrorMessage name="email" component="div" className="error" />
+          
+          <label htmlFor="password">Password:</label>
+          <Field type="password" id="password" name="password" />
+          <ErrorMessage name="password" component="div" className="error" />
+
+          <button type="submit">Login</button>
+        </Form>
+      )}
+    </Formik>
   );
-}
+};
 
-function SignUpForm() {
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
-  const [error, setError] = useState(null);
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    if (!email || !password || !confirmPassword) {
-      setError('Please fill all fields');
-    } else if (password !== confirmPassword) {
-      setError('Passwords do not match');
-    } else {
-      // Handle form submission and validation
-      console.log('Sign-up form submitted');
-    }
-  };
+const SignUpForm = ({ onSignUp }) => {
+  const validationSchema = Yup.object().shape({
+    email: Yup.string()
+      .email('Invalid email format')
+      .required('Email is required'),
+    password: Yup.string()
+      .min(8, 'Password must be at least 8 characters')
+      .required('Password is required'),
+    confirmPassword: Yup.string()
+      .oneOf([Yup.ref('password'), null], 'Passwords must match')
+      .required('Confirm Password is required'),
+  });
 
   return (
-    <form onSubmit={handleSubmit}>
-      <label htmlFor="email">Email:</label>
-      <input 
-        type="email" 
-        id="email" 
-        value={email} 
-        onChange={(event) => setEmail(event.target.value)} 
-      />
-      <label htmlFor="password">Password:</label>
-      <input 
-        type="password" 
-        id="password" 
-        value={password} 
-        onChange={(event) => setPassword(event.target.value)} 
-      />
-      <label htmlFor="confirmPassword">Confirm Password:</label>
-      <input 
-        type="password" 
-        id="confirmPassword" 
-        value={confirmPassword} 
-        onChange={(event) => setConfirmPassword(event.target.value)} 
-      />
-      {error && <div className="error">{error}</div>}
-      <button type="submit">Sign Up</button>
-    </form>
+    <Formik
+      initialValues={{ email: '', password: '', confirmPassword: '' }}
+      validationSchema={validationSchema}
+      onSubmit={onSignUp}
+    >
+      {() => (
+        <Form>
+          <label htmlFor="email">Email:</label>
+          <Field type="email" id="email" name="email" />
+          <ErrorMessage name="email" component="div" className="error" />
+          
+          <label htmlFor="password">Password:</label>
+          <Field type="password" id="password" name="password" />
+          <ErrorMessage name="password" component="div" className="error" />
+
+          <label htmlFor="confirmPassword">Confirm Password:</label>
+          <Field type="password" id="confirmPassword" name="confirmPassword" />
+          <ErrorMessage name="confirmPassword" component="div" className="error" />
+
+          <button type="submit">Sign Up</button>
+        </Form>
+      )}
+    </Formik>
   );
-}
+};
 
 export default Login;
