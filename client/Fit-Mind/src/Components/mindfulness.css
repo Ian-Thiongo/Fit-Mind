@@ -1,0 +1,46 @@
+/* Import Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+
+.session-title {
+  font-size: 30px;
+  color: #52796fd7;
+  margin-bottom: 10px;
+  font-family: 'Pacifico', cursive;
+  font-size: 6rem; /* Adjust as needed */
+}
+
+.sessions-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); /* Adjusted to make grids bigger */
+  gap: 20px;
+  padding: 20px;
+}
+
+.session-card {
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+  font-size: 20px; 
+}
+
+.session-card:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.session-detail p {
+  font-size: 24px; /* Increase this value as needed */
+  line-height: 1.6; /* Optional: adjust line height for better readability */
+  color: #4b7067f6;
+}
+
+.mindfulness-body {
+  background-image: url('https://i.pinimg.com/564x/f9/6b/f2/f96bf2246a029b35e216876495fdde7b.jpg');
+  background-size: cover; 
+  background-repeat: no-repeat;
+  background-position: center; 
+  background-attachment: fixed; 
+  height: 100vh;
+}
