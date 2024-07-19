@@ -11,6 +11,23 @@ const Profile = () => {
   const [nationality, setNationality] = useState("Your nationality...");
   const [gender, setGender] = useState("Your preferred gender here...");
   const [email, setEmail] = useState("Your email...");
+
+  useEffect(() => {
+    // Replace with actual user ID
+    const userId = 1;
+    fetch(`http://127.0.0.1:5000/api/profile/${userId}`)
+      .then(response => response.json())
+      .then(data => {
+        setAvatar(data.avatar);
+        setName(data.username);
+        setBio(data.bio);
+        setHobbies(data.hobbies);
+        setNationality(data.nationality);
+        setGender(data.gender);
+        setEmail(data.email);
+      })
+      .catch(error => console.error('Error fetching profile:', error));
+  }, []);
   
   const handleAvatarChange = (event) => {
     const file = event.target.files[0];
@@ -25,6 +42,30 @@ const Profile = () => {
 
   const toggleEdit = () => {
     setEditing(!editing);
+  };
+
+  const saveProfile = () => {
+    // Replace with actual user ID
+    const userId = 1;
+    fetch(`http://127.0.0.1:5000/api/profile/${userId}`, {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        avatar,
+        bio,
+        hobbies,
+        nationality,
+        gender,
+        email,
+      }),
+    })
+      .then(response => response.json())
+      .then(data => {
+        setEditing(false);
+      })
+      .catch(error => console.error('Error updating profile:', error));
   };
 
   return (

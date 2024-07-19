@@ -9,18 +9,28 @@ session_routes = Blueprint('session_routes', __name__)
 auth_routes = Blueprint('auth_routes', __name__)
 
 # User Routes
-@user_routes.route('/', methods=['POST'])
-def create_user():
-    data = request.json
-    user = User(**data)
-    db.session.add(user)
-    db.session.commit()
-    return jsonify(user.to_dict()), 201
+profile_routes = Blueprint('profile_routes', __name__)
 
-@user_routes.route('/', methods=['GET'])
-def get_users():
-    users = User.query.all()
-    return jsonify([user.to_dict() for user in users]), 200
+@profile_routes.route('/profile/<int:user_id>', methods=['GET'])
+def get_profile(user_id):
+    user = User.query.get(user_id)
+    if user:
+        return jsonify(user.to_dict()), 200
+    return jsonify({'error': 'User not found'}), 404
+
+@profile_routes.route('/profile/<int:user_id>', methods=['PUT'])
+def update_profile(user_id):
+    data = request.json
+    user = User.query.get(user_id)
+    if user:
+        user.avatar = data.get('avatar', user.avatar)
+        user.bio = data.get('bio', user.bio)
+        user.hobbies = data.get('hobbies', user.hobbies)
+        user.nationality = data.get('nationality', user.nationality)
+        user.gender = data.get('gender', user.gender)
+        db.session.commit()
+        return jsonify(user.to_dict()), 200
+    return jsonify({'error': 'User not found'}), 404
 
 # Goal Routes
 @goal_routes.route('/', methods=['POST'])

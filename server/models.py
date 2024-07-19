@@ -7,7 +7,6 @@ class User(db.Model):
     username = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(100), nullable=False, unique=True)
     password = db.Column(db.String(100), nullable=False)
-    age = db.Column(db.Integer)
     nationality = db.Column(db.String(50))
     description = db.Column(db.Text)
     hobbies = db.Column(db.Text)
@@ -17,7 +16,6 @@ class User(db.Model):
             'id': self.id,
             'username': self.username,
             'email': self.email,
-            'age': self.age,
             'nationality': self.nationality,
             'description': self.description,
             'hobbies': self.hobbies

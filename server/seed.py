@@ -1,9 +1,31 @@
 from app import app, db
 from models import User, Goal, FitnessChallenge, MindfulnessSession
+from werkzeug.security import generate_password_hash, check_password_hash
+
 
 def seed_data():
-    user1 = User(username='john_doe', email='john@example.com', password='password', age=30, nationality='American', description='A fitness enthusiast', hobbies='Running, Yoga')
-    user2 = User(username='jane_doe', email='jane@example.com', password='password', age=25, nationality='Canadian', description='Loves outdoor activities', hobbies='Hiking, Cycling')
+    # Creating users with hashed passwords
+    user1 = User(
+        username='john_doe',
+        email='john@example.com',
+        password=generate_password_hash('password', method='sha256'),
+        avatar=None,  # You can update this with a valid URL or path if needed
+        bio='A fitness enthusiast',
+        hobbies='Running, Yoga',
+        nationality='American',
+        gender='Male'
+    )
+    
+    user2 = User(
+        username='jane_doe',
+        email='jane@example.com',
+        password=generate_password_hash('password', method='sha256'),
+        avatar=None,  # You can update this with a valid URL or path if needed
+        bio='Loves outdoor activities',
+        hobbies='Hiking, Cycling',
+        nationality='Canadian',
+        gender='Female'
+    )
 
     goal1 = Goal(user=user1, title='Lose Weight', description='Lose 10 pounds in 3 months', is_completed=False)
     goal2 = Goal(user=user2, title='Run Marathon', description='Complete a marathon in under 4 hours', is_completed=False)
