@@ -22,17 +22,54 @@ function Login({ onLogin }) {
     setShowSignUpModal(false);
   };
 
-  const handleLogin = (values) => {
-    console.log('Login form submitted', values);
-    onLogin('mockToken');
-    navigate('/', { replace: true });
+  const handleLogin = async (values) => {
+    try {
+      const response = await fetch('http://127.0.0.1:5000/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+  
+      const data = await response.json();
+  
+      if (response.ok) {
+        console.log('Login successful', data);
+        onLogin(data.token);
+        navigate('/', { replace: true });
+      } else {
+        console.error('Login failed', data);
+      }
+    } catch (error) {
+      console.error('An error occurred during login', error);
+    }
   };
-
-  const handleSignUp = (values) => {
-    console.log('Sign-up form submitted', values);
-    onLogin('mockToken');
-    navigate('/', { replace: true });
+  
+  const handleSignUp = async (values) => {
+    try {
+      const response = await fetch('http://127.0.0.1:5000/auth/signup', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
+  
+      const data = await response.json();
+  
+      if (response.ok) {
+        console.log('Sign-up successful', data);
+        onLogin(data.token);
+        navigate('/', { replace: true });
+      } else {
+        console.error('Sign-up failed', data);
+      }
+    } catch (error) {
+      console.error('An error occurred during sign-up', error);
+    }
   };
+  
 
   return (
     <div className="landing-page">
